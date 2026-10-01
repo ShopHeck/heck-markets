@@ -20,7 +20,7 @@ class KalshiClient:
 
     def __init__(self, settings: Settings, client: httpx.Client | None = None):
         self._base = settings.kalshi_base_url.rstrip("/")
-        self._key_id = settings.kalshi_api_key_id
+        self._key_id = settings.kalshi_key_id
         self._client = client or httpx.Client(timeout=15)
         pem = settings.kalshi_key_pem()
         self._rsa_key: rsa.RSAPrivateKey | None = (
